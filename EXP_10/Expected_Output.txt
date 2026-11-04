@@ -1,0 +1,111 @@
+Output 1: IF-ELSIF (Grade by Salary)
+ALLEN: Grade B
+
+PL/SQL procedure successfully completed.
+
+
+Output 2: CASE (Bonus Calculation)
+Bonus: 1250
+
+PL/SQL procedure successfully completed.
+
+
+Output 3: Predefined Exception
+No employee with that number.
+
+PL/SQL procedure successfully completed.
+
+
+Output 4: User-Defined Exception
+Salary below minimum: 8000
+
+PL/SQL procedure successfully completed.
+
+
+Output 5: Duplicate Key Exception
+ERROR at line 1:
+ORA-20001: Employee number already exists
+ORA-06512: at line 7
+
+
+Output 6: Stored Procedure — Raise Salary
+After executing EXEC raise_salary(101, 10);
+PL/SQL procedure successfully completed.
+
+
+Check the updated salary:
+SELECT empno, ename, sal
+FROM emp
+WHERE empno = 101;
+
+
+EMPNO  ENAME  SAL
+-----  -----  -----
+101    SMITH  8800
+
+
+Output 7: Procedure with OUT Parameters
+JONES earns 29750
+
+PL/SQL procedure successfully completed.
+
+
+Output 8: Procedure with IN OUT Parameter
+Result: 49
+
+PL/SQL procedure successfully completed.
+
+
+Output 9: Stored Function — Annual Salary
+After executing annual_sal(102):
+180000
+
+PL/SQL procedure successfully completed.
+
+
+SQL query output:
+ENAME	YEARLY
+SMITH	105600
+ALLEN	180000
+WARD	150000
+JONES	357000
+KING	600000
+This assumes the salary of SMITH was increased by 10% and committed.
+
+Output 10: BEFORE Trigger Salary Validation
+After executing UPDATE emp SET sal = -100 WHERE empno = 101;
+ERROR at line 1:
+ORA-20010: Salary cannot be negative
+ORA-06512: at "TRG_CHECK_SAL"
+
+
+Output 11: AFTER Trigger Audit Records
+After executing the update and delete statements, the audit table contains the following records, assuming the audit table was empty initially.
+AUDIT_ID	EMPNO	ACTION	OLD_SAL	NEW_SAL
+NULL	101	UPDATE	8800	9000
+NULL	103	DELETE	12500	NULL
+Note: The AUDIT_ID column is not automatically generated in the Oracle 11g-compatible table definition. These values are NULL unless you provide IDs or configure a sequence and trigger.
+Output 12: Trigger Status
+After disabling trg_no_weekend:
+TRIGGER_NAME       STATUS
+------------------ --------
+TRG_CHECK_SAL      ENABLED
+TRG_EMP_AUDIT      ENABLED
+TRG_NO_WEEKEND     DISABLED
+
+
+Output 13: Implicit Cursor
+2 row(s) updated
+
+PL/SQL procedure successfully completed.
+
+
+Output 14: Explicit Cursor
+If SMITH's salary is 8800 and the audit test's delete of WARD was rolled back, the cursor output is:
+KING      50000
+JONES     29750
+ALLEN     15000
+WARD      12500
+SMITH     8800
+
+PL/SQL procedure successfully completed.
