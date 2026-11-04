@@ -1,0 +1,121 @@
+1. First Normal Form (1NF) — StudentCourse_1NF
+text
++-----+-------+--------+---------+-------------+------+------------+
+| SID | SName | Course | Faculty | FacultyPhone| Dept | HOD        |
++-----+-------+--------+---------+-------------+------+------------+
+| S1  | Arun  | DBMS   | Ravi    | 9990001     | CSE  | Dr. Sharma |
+| S1  | Arun  | OS     | Meena   | 9990002     | CSE  | Dr. Sharma |
+| S2  | Bala  | DBMS   | Ravi    | 9990001     | CSE  | Dr. Sharma |
++-----+-------+--------+---------+-------------+------+------------+
+2. Second Normal Form (2NF)
+Student Table
+
+text
++-----+-------+
+| SID | SName |
++-----+-------+
+| S1  | Arun  |
+| S2  | Bala  |
++-----+-------+
+Course_Faculty Table
+
+text
++--------+---------+-------------+------+------------+
+| Course | Faculty | FacultyPhone| Dept | HOD        |
++--------+---------+-------------+------+------------+
+| DBMS   | Ravi    | 9990001     | CSE  | Dr. Sharma |
+| OS     | Meena   | 9990002     | CSE  | Dr. Sharma |
++--------+---------+-------------+------+------------+
+Enrollment Table
+
+text
++-----+--------+
+| SID | Course |
++-----+--------+
+| S1  | DBMS   |
+| S1  | OS     |
+| S2  | DBMS   |
++-----+--------+
+3. Third Normal Form (3NF) — JOIN Output
+text
++--------+---------+-------------+------+------------+
+| Course | Faculty | FacultyPhone| Dept | HOD        |
++--------+---------+-------------+------+------------+
+| DBMS   | Ravi    | 9990001     | CSE  | Dr. Sharma |
+| OS     | Meena   | 9990002     | CSE  | Dr. Sharma |
++--------+---------+-------------+------+------------+
+4. Fourth Normal Form (4NF)
+Faculty_Course Table
+
+text
++---------+--------+
+| Faculty | Course |
++---------+--------+
+| Ravi    | DBMS   |
+| Ravi    | OS     |
++---------+--------+
+Faculty_Language Table
+
+text
++---------+----------+
+| Faculty | Language |
++---------+----------+
+| Ravi    | English  |
+| Ravi    | Hindi    |
++---------+----------+
+5. Fifth Normal Form (5NF)
+Faculty_Course_5NF Table
+
+text
++---------+--------+
+| Faculty | Course |
++---------+--------+
+| Ravi    | DBMS   |
+| Meena   | OS     |
++---------+--------+
+Course_Textbook_5NF Table
+
+text
++--------+-------------+
+| Course | Textbook    |
++--------+-------------+
+| DBMS   | Korth       |
+| DBMS   | Navathe     |
+| OS     | Silberschatz|
++--------+-------------+
+Faculty_Textbook_5NF Table
+
+text
++---------+-------------+
+| Faculty | Textbook    |
++---------+-------------+
+| Ravi    | Korth       |
+| Ravi    | Navathe     |
+| Meena   | Silberschatz|
++---------+-------------+
+Reconstructed Output Using JOIN
+
+text
++---------+--------+-------------+
+| Faculty | Course | Textbook    |
++---------+--------+-------------+
+| Ravi    | DBMS   | Korth       |
+| Ravi    | DBMS   | Navathe     |
+| Meena   | OS     | Silberschatz|
++---------+--------+-------------+
+6. Verification of Tables in Oracle
+The query SELECT table_name FROM user_tables ORDER BY table_name; displays the tables created in the current schema, including:
+
+text
+COURSE_3NF
+COURSE_FACULTY
+COURSE_TEXTBOOK_5NF
+DEPARTMENT
+ENROLLMENT
+FACULTY_COURSE
+FACULTY_COURSE_5NF
+FACULTY_DEPT
+FACULTY_LANGUAGE
+FACULTY_TEXTBOOK_5NF
+STUDENT
+STUDENTCOURSE_1NF
