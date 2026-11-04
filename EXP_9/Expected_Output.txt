@@ -1,0 +1,137 @@
+mysql> SELECT s.student_id, s.student_name, d.dept_name
+    -> FROM Student s
+    -> INNER JOIN Department d
+    -> ON s.dept_id = d.dept_id;
+
++------------+--------------+-----------+
+| student_id | student_name | dept_name |
++------------+--------------+-----------+
+|        101 | Anu          | CSE       |
+|        102 | Bala         | CSE       |
+|        103 | Charan       | ECE       |
+|        104 | Divya        | IT        |
++------------+--------------+-----------+
+4 rows in set
+
+
+Output 2: LEFT JOIN — All students
++------------+--------------+-----------+
+| student_id | student_name | dept_name |
++------------+--------------+-----------+
+|        101 | Anu          | CSE       |
+|        102 | Bala         | CSE       |
+|        103 | Charan       | ECE       |
+|        104 | Divya        | IT        |
+|        105 | Esha         | NULL      |
++------------+--------------+-----------+
+5 rows in set
+
+
+Output 3: All departments and students
++---------+-----------+--------------+
+| dept_id | dept_name | student_name |
++---------+-----------+--------------+
+|      10 | CSE       | Anu          |
+|      10 | CSE       | Bala         |
+|      20 | ECE       | Charan       |
+|      30 | IT        | Divya        |
+|      40 | MECH      | NULL         |
++---------+-----------+--------------+
+5 rows in set
+
+
+Output 4: Students and enrolled courses
++--------------+-----------------+-------+
+| student_name | course_name     | marks |
++--------------+-----------------+-------+
+| Anu          | DBMS            |    88 |
+| Anu          | Data Structures |    91 |
+| Bala         | DBMS            |    76 |
+| Charan       | Digital Systems |    84 |
+| Divya        | Web Technology  |    95 |
++--------------+-----------------+-------+
+5 rows in set
+
+
+Output 5: Students scoring more than 80
++--------------+-----------------+-------+
+| student_name | course_name     | marks |
++--------------+-----------------+-------+
+| Anu          | DBMS            |    88 |
+| Anu          | Data Structures |    91 |
+| Charan       | Digital Systems |    84 |
+| Divya        | Web Technology  |    95 |
++--------------+-----------------+-------+
+4 rows in set
+
+
+Output 6: RIGHT JOIN
++-----------+--------------+
+| dept_name | student_name |
++-----------+--------------+
+| CSE       | Anu          |
+| CSE       | Bala         |
+| ECE       | Charan       |
+| IT        | Divya        |
+| MECH      | NULL         |
++-----------+--------------+
+5 rows in set
+
+
+Output 7: CGPA greater than average
++------------+--------------+------+
+| student_id | student_name | cgpa |
++------------+--------------+------+
+|        101 | Anu          | 8.70 |
+|        103 | Charan       | 8.20 |
+|        104 | Divya        | 9.10 |
++------------+--------------+------+
+3 rows in set
+
+
+Output 8: Students in CSE
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|        101 | Anu          |
+|        102 | Bala         |
++------------+--------------+
+2 rows in set
+
+
+Output 9: Students enrolled in DBMS
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|        101 | Anu          |
+|        102 | Bala         |
++------------+--------------+
+2 rows in set
+
+
+Output 10: Courses with credits greater than ANY ECE course
++-----------+-----------------+---------+
+| course_id | course_name     | credits |
++-----------+-----------------+---------+
+|       501 | DBMS            |       4 |
+|       502 | Data Structures |       4 |
++-----------+-----------------+---------+
+2 rows in set
+
+
+Output 11: CGPA above department average
++------------+--------------+---------+------+
+| student_id | student_name | dept_id | cgpa |
++------------+--------------+---------+------+
+|        101 | Anu          |      10 | 8.70 |
++------------+--------------+---------+------+
+1 row in set
+
+
+Output 12: Highest CGPA
++------------+--------------+------+
+| student_id | student_name | cgpa |
++------------+--------------+------+
+|        104 | Divya        | 9.10 |
++------------+--------------+------+
+1 row in set
