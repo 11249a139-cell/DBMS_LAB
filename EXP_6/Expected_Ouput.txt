@@ -1,0 +1,16 @@
++-------------------------------+----------------------------------------------+
+| Query                         | Expected Result                              |
++-------------------------------+----------------------------------------------+
+| IN (Department Filter)         | Arun, Kumar, Sita                            |
+| ANY (Marks > ANY course 2)     | Arun (85, 78), Priya (55), Kumar (90, 88),   |
+|                               | Sita (70)                                    |
+| ALL (Marks > ALL course 2)     | Arun (85, 78), Kumar (90, 88)                |
+| EXISTS (Departments)           | Computer Science, Electronics, Mechanical    |
+| NOT EXISTS (No Enrollment)     | Empty set                                    |
+| UNION                          | Roll number 103                              |
+| INTERSECT                      | Roll numbers 101, 103                        |
+| EXCEPT                         | Empty set                                    |
+| NOT NULL Violation             | Error: Name cannot be NULL                   |
+| UNIQUE Violation               | Error: Duplicate email                       |
+| CHECK Violation                | Error: Marks must be between 0 and 100       |
+| FOREIGN KEY Violation          | Error: Student roll number does not exist    |
