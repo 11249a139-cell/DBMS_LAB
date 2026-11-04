@@ -1,0 +1,82 @@
+1. Student Table After Insertion
+text
++--------+-------+------------+-------+
+| ROLLNO | NAME  | DEPARTMENT | MARKS |
++--------+-------+------------+-------+
+| 101    | ARUN  | CSE        | 85    |
+| 102    | PRIYA | ECE        | 90    |
+| 103    | KUMAR | CSE        | 78    |
+| 104    | DIVYA | IT         | 88    |
+| 105    | RAHUL | CSE        | 92    |
++--------+-------+------------+-------+
+2. Creation of View — CSE_STUDENTS
+text
++--------+-------+-------+
+| ROLLNO | NAME  | MARKS |
++--------+-------+-------+
+| 101    | ARUN  | 85    |
+| 103    | KUMAR | 78    |
+| 105    | RAHUL | 92    |
++--------+-------+-------+
+3. Creation of Sequence
+text
++---------+
+| NEXTVAL |
++---------+
+| 106     |
+| 107     |
++---------+
+4. Insert Student Using Sequence
+text
++--------+-------+------------+-------+
+| ROLLNO | NAME  | DEPARTMENT | MARKS |
++--------+-------+------------+-------+
+| 108    | SNEHA | CSE        | 89    |
++--------+-------+------------+-------+
+5. Retrieve Student Using Index
+text
++--------+------+------------+-------+
+| ROLLNO | NAME | DEPARTMENT | MARKS |
++--------+------+------------+-------+
+| 101    | ARUN | CSE        | 85    |
++--------+------+------------+-------+
+6. Records Before ROLLBACK TO SP1
+text
++--------+-------+------------+-------+
+| ROLLNO | NAME  | DEPARTMENT | MARKS |
++--------+-------+------------+-------+
+| 101    | ARUN  | CSE        | 85    |
+| 102    | PRIYA | ECE        | 90    |
+| 103    | KUMAR | CSE        | 78    |
+| 104    | DIVYA | IT         | 88    |
+| 105    | RAHUL | CSE        | 92    |
+| 108    | SNEHA | CSE        | 89    |
+| 106    | MOHAN | IT         | 80    |
+| 107    | LATHA | ECE        | 87    |
++--------+-------+------------+-------+
+7. Records After ROLLBACK TO SP1
+text
++--------+-------+------------+-------+
+| ROLLNO | NAME  | DEPARTMENT | MARKS |
++--------+-------+------------+-------+
+| 101    | ARUN  | CSE        | 85    |
+| 102    | PRIYA | ECE        | 90    |
+| 103    | KUMAR | CSE        | 78    |
+| 104    | DIVYA | IT         | 88    |
+| 105    | RAHUL | CSE        | 92    |
+| 108    | SNEHA | CSE        | 89    |
+| 106    | MOHAN | IT         | 80    |
++--------+-------+------------+-------+
+8. Final Student Table After COMMIT
+text
++--------+-------+------------+-------+
+| ROLLNO | NAME  | DEPARTMENT | MARKS |
++--------+-------+------------+-------+
+| 101    | ARUN  | CSE        | 85    |
+| 102    | PRIYA | ECE        | 90    |
+| 103    | KUMAR | CSE        | 78    |
+| 104    | DIVYA | IT         | 88    |
+| 105    | RAHUL | CSE        | 92    |
+| 106    | MOHAN | IT         | 80    |
+| 108    | SNEHA | CSE        | 89    |
++--------+-------+------------+-------+
