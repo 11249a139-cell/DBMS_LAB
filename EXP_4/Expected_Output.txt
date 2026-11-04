@@ -1,0 +1,77 @@
+1. Department Table
+
++---------+------------------+
+| dept_id | dept_name        |
++---------+------------------+
+| 1       | Computer Science |
+| 2       | Electronics      |
++---------+------------------+
+
+2. Student Table After Inserting Valid Records
+
++---------+-------+-----+-----------------+---------------+---------+
+| roll_no | name  | age | email           | gender        | dept_id |
++---------+-------+-----+-----------------+---------------+---------+
+| 101     | Arun  | 20  | arun@email.com  | Male          | 1       |
+| 102     | Priya | 21  | priya@email.com | Not Specified | 2       |
++---------+-------+-----+-----------------+---------------+---------+
+
+3. Constraint Violations
+
+(a) NOT NULL Violation
+Error: Cannot insert NULL into the name column.
+
+(b) UNIQUE Violation
+Error: Duplicate email value 'arun@email.com'.
+
+(c) PRIMARY KEY Violation
+Error: Duplicate roll_no value '101'.
+
+(d) CHECK Violation
+Error: Age must be between 17 and 30.
+
+(e) FOREIGN KEY Violation
+Error: dept_id '9' does not exist in the Department table.
+
+4. Adding a CHECK Constraint
+
+Query:
+ALTER TABLE Student
+ADD CONSTRAINT chk_name CHECK (LENGTH(name) >= 3);
+
+Output:
+Query OK, constraint chk_name added successfully.
+
+5. Dropping the CHECK Constraint
+
+Query:
+ALTER TABLE Student
+DROP CHECK chk_name;
+
+Output:
+Query OK, constraint chk_name dropped successfully.
+
+6. Viewing Student Table Structure
+
+Query:
+DESC Student;
+
++---------+-------------+------+-----+---------------+-------+
+| Field   | Type        | Null | Key | Default       | Extra |
++---------+-------------+------+-----+---------------+-------+
+| roll_no | int         | NO   | PRI | NULL          |       |
+| name    | varchar(50) | NO   |     | NULL          |       |
+| age     | int         | YES  |     | NULL          |       |
+| email   | varchar(50) | YES  | UNI | NULL          |       |
+| gender  | varchar(10) | YES  |     | Not Specified |       |
+| dept_id | int         | YES  | MUL | NULL          |       |
++---------+-------------+------+-----+---------------+-------+
+
+7. Final Student Table
+
++---------+-------+-----+-----------------+---------------+---------+
+| roll_no | name  | age | email           | gender        | dept_id |
++---------+-------+-----+-----------------+---------------+---------+
+| 101     | Arun  | 20  | arun@email.com  | Male          | 1       |
+| 102     | Priya | 21  | priya@email.com | Not Specified | 2       |
++---------+-------+-----+-----------------+---------------+---------+
